@@ -18,6 +18,7 @@
     "@react-three/drei": "9.32",
     "@react-three/fiber": "8.8",
     "@react-three/postprocessing": "2.6",
+    "@react-three/rapier": "0.9",
     "leva": "0.9",
     "postprocessing": "^6.29.3",
     "r3f-perf": "6.5",

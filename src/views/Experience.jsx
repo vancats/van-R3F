@@ -5,19 +5,16 @@ import Environment from './Environment'
 import Texts from './Texts'
 import Geometries from './Geometries'
 import Performance from './Performance'
-import Plane from '../component/Plane'
 import Model from './Model'
 import { Suspense } from 'react'
 import PlaceHolder from '../component/PlaceHolder'
 import Portal from './Portal'
 import PostProcessing from './PostProcessing'
 import Portfolio from './Portfolio'
+import Physics from './Physics'
 
 export default function Experience() {
 
-    const { envMapIntensity } = useControls('environment map', {
-        envMapIntensity: { value: 3.5, min: 0, max: 12 },
-    })
 
     return <>
 
@@ -27,9 +24,7 @@ export default function Experience() {
 
         <Environment />
 
-        <Plane envMapIntensity={envMapIntensity} />
-
-        <Geometries envMapIntensity={envMapIntensity} />
+        {/* <Geometries /> */}
 
         {/* <Texts /> */}
 
@@ -42,5 +37,7 @@ export default function Experience() {
         {/* <PostProcessing /> */}
 
         {/* <Portfolio /> */}
+
+        <Physics />
     </>
 }

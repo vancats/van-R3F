@@ -2,8 +2,9 @@ import { TransformControls, PivotControls, Html, MeshReflectorMaterial, Stage, m
 import { useRef } from 'react'
 import { useControls, button } from 'leva'
 import { useFrame } from '@react-three/fiber'
+import Plane from '../component/Plane'
 
-export default function Geometries({ envMapIntensity }) {
+export default function Geometries() {
 
     const cubeRef = useRef()
     const sphereRef = useRef()
@@ -11,7 +12,7 @@ export default function Geometries({ envMapIntensity }) {
     // 可以通过引入 folder 来设置嵌套的 folder
     const { position, color, visible } = useControls('sphere', {
         position: {
-            value: { x: -2, y: 0 },
+            value: { x: -2, y: 2 },
             step: 0.01,
             joystick: 'invertY'
         },
@@ -20,6 +21,10 @@ export default function Geometries({ envMapIntensity }) {
         interval: { min: 0, max: 10, value: [4, 5] },
         clickMe: button(() => { console.log('ok') }),
         choice: { options: ['a', 'b', 'c'] }
+    })
+
+    const { envMapIntensity } = useControls('environment map', {
+        envMapIntensity: { value: 3.5, min: 0, max: 12 },
     })
 
     useFrame((state, delta) => {
@@ -35,6 +40,7 @@ export default function Geometries({ envMapIntensity }) {
 
 
     return <>
+        <Plane envMapIntensity={envMapIntensity} />
 
         {/* <PivotControls
             anchor={[0, 0, 0]}
