@@ -5,7 +5,7 @@ import { floor1Material } from "../assets"
 
 export default function BlockEnd({ position = [0, 0, 0] }) {
 
-    const hamburger = useGLTF('./models/Hamburger/hamburger-class.glb')
+    const hamburger = useGLTF('./models/Duck/glTF/Duck.gltf')
 
     hamburger.scene.children.forEach(mesh => {
         mesh.castShadow = true
@@ -32,8 +32,7 @@ export default function BlockEnd({ position = [0, 0, 0] }) {
             friction={0}
             position={[0, 0.25, 0]}
         >
-            <primitive object={hamburger.scene} scale={0.2} />
+            <primitive object={hamburger.scene} scale={0.75} />
         </RigidBody>
     </group>
 }
-
