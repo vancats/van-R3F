@@ -1,4 +1,5 @@
 import { useHelper, BakeShadows, softShadows, AccumulativeShadows, RandomizedLight, ContactShadows, Sky, Environment, Lightformer } from '@react-three/drei'
+import { useFrame } from '@react-three/fiber'
 import { useControls } from 'leva'
 import { useRef } from 'react'
 import * as THREE from 'three'
@@ -24,13 +25,20 @@ export default function () {
     })
 
     const { sunPosition } = useControls('sky', {
-        sunPosition: { value: [1, 2, 3] }
+        sunPosition: { value: [4, 4, 1] }
     })
 
     const { envMapHeight, envMapRadius, envMapScale } = useControls('environment map', {
         envMapHeight: { value: 7, min: 0, max: 100 },
         envMapRadius: { value: 20, min: 10, max: 1000 },
         envMapScale: { value: 100, min: 10, max: 1000 },
+    })
+
+    useFrame((state) => {
+        directionalLight.current.position.z = state.camera.position.z + 1 - 4
+        directionalLight.current.target.position.z = state.camera.position.z - 4
+        // 因为这个 target 不存在于 scene 中，需要手动更新
+        directionalLight.current.target.updateMatrixWorld()
     })
 
     return <>

@@ -24,7 +24,7 @@ export default function () {
             fov: 60,
             near: 0.1,
             far: 200,
-            position: [3, 2, 6],
+            position: [2.5, 4, 6],
             // zoom: 100 // 给正交使用
         }}
         onCreated={created}

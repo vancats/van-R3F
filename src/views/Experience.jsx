@@ -12,15 +12,16 @@ import Portal from './Portal'
 import PostProcessing from './PostProcessing'
 import Portfolio from './Portfolio'
 import Physics from './Physics'
+import Game from '../game'
 
 export default function Experience() {
 
 
     return <>
 
-        <Performance />
+        {location.hash === '#debug' && <Performance />}
 
-        <OrbitControl />
+        {/* <OrbitControl /> */}
 
         <Environment />
 
@@ -38,6 +39,8 @@ export default function Experience() {
 
         {/* <Portfolio /> */}
 
-        <Physics />
+        {/* <Physics /> */}
+
+        <Game />
     </>
 }
